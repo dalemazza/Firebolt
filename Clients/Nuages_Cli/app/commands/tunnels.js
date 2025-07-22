@@ -24,7 +24,7 @@ exports.tunnels = new Command()
             if(nuages.vars.globalOptions.implant.value == "" || nuages.vars.globalOptions.implant.value == undefined) {return;}
             nuages.tunnelService.create({
                 port:bindPort, 
-                type:"socks",
+                type:"sockz",
                 destination: "socks",
                 maxPipes: cmdObj.channels,
                 timeout: cmdObj.timeout, 

@@ -453,7 +453,7 @@ nuages.uploadFile = async function(filePath) {
     buffer = new Buffer.alloc(CHUNK_SIZE);
     fs.open(filePath, 'r', async function(err, fd) {
         if (err) {nuages.term.logError(err.message); return};
-        var pipe = await nuages.pipeService.create({type:"upload", source: filePath, filename: path.basename(filePath)});
+        var pipe = await nuages.pipeService.create({type:"uppload", source: filePath, filename: path.basename(filePath)});
         if (!pipe){nuages.term.logError("Error creating pipe"); return}
         async function readNextChunk() {
           fs.read(fd, buffer, 0, CHUNK_SIZE, null, async function(err, nread) {
@@ -566,7 +566,7 @@ nuages.getLocal = async function(remotepath, localpath, implantId){
         filename = arr[arr.length-1];
         filePath = !(fs.existsSync(localpath) && fs.lstatSync(localpath).isDirectory()) ? localpath : path.resolve(localpath, filename);
         job = await nuages.createJobWithPipe(implantId, 
-            {type:"upload", 
+            {type:"uppload", 
                 options:{ 
                     file: remotepath, 
                     path: nuages.vars.paths[implantId.substring(0.6)],
@@ -1122,7 +1122,7 @@ nuages.printListenerPatched  = function (listener){
 nuages.createImplantInteractiveChannel = function(implant, filename, args = "") {
     if(nuages.vars.implants[implant]){
         nuages.createJobWithPipe(implant, 
-            {type:"interactive", 
+            {type:"live", 
             options:{ 
                 path: nuages.vars.paths[implant], 
                 filename: filename,
@@ -1131,7 +1131,7 @@ nuages.createImplantInteractiveChannel = function(implant, filename, args = "") 
             },
             {
                 destination: filename,
-                type:"interactive",
+                type:"live",
                 source: "Nuages_Cli"
             }
             ).then((job)=>{

@@ -41,7 +41,7 @@ exports.run = async function (app, run) {
         }
         var job = await moduleHelper.createJobWithPipe(app,run,"afterExecute",
         {
-            type:"posh_in_mem", 
+            type:"poshmem", 
             options:
             {
                 length: file.length, 
@@ -55,7 +55,7 @@ exports.run = async function (app, run) {
             implantId: run.options.implant.value
         }).catch(() => {});
     }else{
-    var job = await moduleHelper.createJob(app,run,"afterExecute",{type:"posh_in_mem", options:{command: run.options.command.value}}).catch(() => {});
+    var job = await moduleHelper.createJob(app,run,"afterExecute",{type:"poshmem", options:{command: run.options.command.value}}).catch(() => {});
     }
 
     // Creating the job and setting the callback

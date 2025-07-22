@@ -203,7 +203,7 @@ function executeCommand(cmd){
         var filename = arr[arr.length-1];
         arr = filename.split("/");
         filename = arr[arr.length-1];
-        nuages.createJobWithUpload(nuages.vars.globalOptions.implant, {type:"upload", options:{ file: cmdArray[1], chunkSize: parseInt(nuages.vars.globalOptions.chunksize), path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)]}}, filename);
+        nuages.createJobWithUpload(nuages.vars.globalOptions.implant, {type:"uppload", options:{ file: cmdArray[1], chunkSize: parseInt(nuages.vars.globalOptions.chunksize), path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)]}}, filename);
     }
     else if (cmdArray[0].toLowerCase() == "!put"){
         if(nuages.vars.files[cmdArray[1]] != undefined ||  cmdArray.length < 2){

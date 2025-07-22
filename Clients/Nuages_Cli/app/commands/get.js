@@ -22,7 +22,7 @@ exports.get = nuages.commands["!get"] = new Command()
     arr = filename.split("/");
     filename = arr[arr.length-1];
     nuages.createJobWithPipe(nuages.vars.globalOptions.implant.value, 
-        {type:"upload", 
+        {type:"uppload", 
             options:{ 
                 file: path, 
                 path: nuages.vars.paths[nuages.vars.globalOptions.implant.value.substring(0.6)]
