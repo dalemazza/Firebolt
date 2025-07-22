@@ -52,10 +52,12 @@ const run = async () => {
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("        ?,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,= ")));
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("       :,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,   , ,,,,,,,,,, ")));
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("      ~+=:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:~,,,,,,,  ")));
-		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("   ? ,,,,,,,=,,,,,,,,,,,,,,,,,"))+"_  _  __  __    __    ___  ____  ___     ___  ___  ");
-		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold(" + ,,,,,,,,,,, ,,, :,,,,,,,,,"))+"( \\( )(  )(  )  /__\\  / __)( ___)/ __)   / __)(__ \\ ");
-		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("+ ,,,,,,,,,,,,,,,?,,,,,,,,,,, "))+")  (  )(__)(  /(__)\\( (_-. )__) \\__ \\  ( (__  / _/ ");
-		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold(" ,,,,,,,,,,,,,,?,,,,,,,,,,,,,"))+"(_)\\_)(______)(__)(__)\\___/(____)(___/   \\___)(____)");
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("   ? ,,,,,,,=,,,,,,,,,,,,,,,,,"))+"███████╗██╗██████╗ ███████╗██████╗  ██████╗ ██╗  ████████╗ ");
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold(" + ,,,,,,,,,,, ,,, :,,,,,,,,,"))+" ██╔════╝██║██╔══██╗██╔════╝██╔══██╗██╔═══██╗██║  ╚══██╔══╝ "); 
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("+ ,,,,,,,,,,,,,,,?,,,,,,,,,,,"))+" █████╗  ██║██████╔╝█████╗  ██████╔╝██║   ██║██║     ██║    "); 
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("+ ,,,,,,,,,,,,,,,?,,,,,,,,,,,"))+" ██╔══╝  ██║██╔══██╗██╔══╝  ██╔══██╗██║   ██║██║     ██║    ");   
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("+ ,,,,,,,,,,,,,,,?,,,,,,,,,,,"))+" ██║     ██║██║  ██║███████╗██████╔╝╚██████╔╝███████╗██║    ");   
+		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold(" ,,,,,,,,,,,,,,?,,,,,,,,,,,,,"))+" ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝    ");  
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold(",,,,,,,,,,,,,,=,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?          ")));
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("  ~,,,,,,,,,,?,,,,,,,,,,,,,,, ,,,,,,,,,,,,,,,,,,,,,,+       ")));
 		nuages.term.writeln(nuages.term.toBlue(nuages.term.toBold("     ~+ ,,,,,~,,,,,,,,,,,,,,, ,,,,,,,,,,:,,,,,,,,,,+        ")));
