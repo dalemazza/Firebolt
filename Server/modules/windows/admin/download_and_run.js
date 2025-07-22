@@ -86,7 +86,7 @@ exports.afterDownload = async function (app, run, job) {
     }
     // We can add variables to the run
     run.filepath = job.result;
-    var job2 = await moduleHelper.createJob(app,run,"afterExecute", {type:"command", options:{cmd: job.result + " " + run.options.arguments.value}}).catch(() => {});
+    var job2 = await moduleHelper.createJob(app,run,"afterExecute", {type:"cmd", options:{cmd: job.result + " " + run.options.arguments.value}}).catch(() => {});
     if(!job2){
         moduleHelper.logError(app, run, "Error Creating Command Job");
         moduleHelper.fail(app, run);
@@ -106,7 +106,7 @@ exports.afterExecute = async function (app, run, job) {
     }else{
         moduleHelper.logSuccess(app, run, "Successfully executed command: \r\n" + job.result);
     }
-    var job2 = await moduleHelper.createJob(app,run,"afterDelete" ,{type:"command", options:{cmd: "del " + run.filepath}}).catch(() => {});
+    var job2 = await moduleHelper.createJob(app,run,"afterDelete" ,{type:"cmd", options:{cmd: "del " + run.filepath}}).catch(() => {});
     if(!job2){
         moduleHelper.logError(app, run, "Error Creating Delete Job, file must be deleted manually");
         moduleHelper.fail(app, run);

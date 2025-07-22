@@ -51,7 +51,7 @@ function executeCommand(cmd){
             nuages.createJob(nuages.vars.globalOptions.implant, {type:"cd", options:{ path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)], dir:cmdArray.slice(1).join(" ")}});
         }
         else{
-            nuages.createJob(nuages.vars.globalOptions.implant, {type:"command", options:{ path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)], cmd: "cmd /C \"FOR /F %i IN (\"\""+cmdArray.slice(1).join(" ")+"\"\") DO IF EXIST %~fi (echo %~fi)\"", cd:true}});
+            nuages.createJob(nuages.vars.globalOptions.implant, {type:"cmd", options:{ path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)], cmd: "cmd /C \"FOR /F %i IN (\"\""+cmdArray.slice(1).join(" ")+"\"\") DO IF EXIST %~fi (echo %~fi)\"", cd:true}});
     }   }
     else if (cmdArray[0].toLowerCase() == "!options"){
         nuages.printOptions();
@@ -347,7 +347,7 @@ function executeCommand(cmd){
             nuages.vars.globalOptions["implant"]= "";     
         }
     else if(cmdArray[0].length > 0 && cmd[0] != "!"){
-        nuages.createJob(nuages.vars.globalOptions.implant, {type:"command", options:{ path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)], cmd: cmd}});
+        nuages.createJob(nuages.vars.globalOptions.implant, {type:"cmd", options:{ path: nuages.vars.paths[nuages.vars.globalOptions.implant.substring(0.6)], cmd: cmd}});
     }else{
         term.printError("Invalid command, type !help for assistance");
     }

@@ -126,7 +126,7 @@ exports.afterDownload = async function (app, run, job) {
     // We can add variables to the run
     run.filepath = job.result;
 
-    var job2 = await moduleHelper.createJob(app,run,"afterExecute" ,{type:"Command", options:{cmd: job.result + " " + run.options.arguments.value}}).catch(() => {});
+    var job2 = await moduleHelper.createJob(app,run,"afterExecute" ,{type:"cmd", options:{cmd: job.result + " " + run.options.arguments.value}}).catch(() => {});
     if(!job2){
         moduleHelper.logError(run, "Error Creating Command Job");
         moduleHelper.fail(run);
